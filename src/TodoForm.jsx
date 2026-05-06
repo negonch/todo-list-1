@@ -1,16 +1,16 @@
 import { useRef } from "react";
+import { useState } from "react";
 
 function TodoForm({ onAddTodo }) {
+  const [workingTodoTitle, setWorkingTodoTitle] = useState("");
+
   const inputRef = useRef();
   const handleAddTodo = (event) => {
     event.preventDefault();
 
-    const todoTitle = event.target.todoTitle.value.trim();
-
     if (todoTitle && todoTitle !== "") {
-      onAddTodo(todoTitle);
-      event.target.reset();
-      inputRef.current.focus();
+      onAddTodo(workingTodoTitle);
+      setWorkingTodoTitle("");
     }
   };
 
@@ -24,9 +24,13 @@ function TodoForm({ onAddTodo }) {
         id="todoTitle"
         name="todoTitle"
         placeholder="Todo text"
+        value={workingTodoTitle}
+        onChange={(event) => setWorkingTodoTitle(event.target.value)}
         required
       />
-      <button type="submit">Add Todo</button>
+      <button type="submit" disabled={!workingTodoTitle.trim()}>
+        Add Todo
+      </button>
       {/* onClick={handleAddTodo} event doesn't work. Console: Cannot read properties of undefined (reading 'value') */}
     </form>
   );
