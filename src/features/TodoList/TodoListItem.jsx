@@ -3,8 +3,6 @@ import { isValidTodoTitle } from "../../utils/todoValidation";
 import { useEditableTitle } from "../../hooks/useEditableTitle";
 
 function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
-  // const [isEditing, setIsEditing] = useState(false);
-  // const [workingTitle, setWorkingTitle] = useState(todo.title);
   const {
     isEditing,
     workingTitle,
@@ -46,7 +44,7 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
               value={workingTitle}
               onChange={handleEdit}
               elementId={`editTodo${todo.id}`}
-              abelText="Todo"
+              labelText="Todo"
             />
             <button type="button" onClick={handleCancel}>
               Cancel
