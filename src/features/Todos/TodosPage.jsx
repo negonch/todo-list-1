@@ -25,14 +25,13 @@ function TodosPage({ token }) {
           },
         });
 
+        const data = await response.json();
         if (response.status === 401) {
           throw new Error("unauthorized");
         }
         if (!response.ok) {
           throw new Error(data?.message || "Failed to load todos.");
         }
-
-        const data = await response.json();
 
         setTodoList(data.tasks);
       } catch (error) {
@@ -45,6 +44,7 @@ function TodosPage({ token }) {
     fetchTodos();
   }, [token]);
 
+  // Add Todo
   async function addTodo(todoTitle) {
     const newTodo = {
       id: Date.now(),
@@ -70,15 +70,16 @@ function TodosPage({ token }) {
         }),
       });
 
+      const data = await response.json();
+
       if (response.status === 401) {
         throw new Error("unauthorized");
       }
 
       if (!response.ok) {
-        throw new Error("Error: Failed to add todo.");
+        throw new Error(data?.message || "Error: Failed to add todo.");
       }
 
-      const data = await response.json();
       const savedTodo = data.task || data;
 
       setTodoList((previous) =>
@@ -93,6 +94,7 @@ function TodosPage({ token }) {
     }
   }
 
+  // Complete Todo
   async function completeTodo(id) {
     const originalTodo = todoList.find((todo) => todo.id === id);
 
@@ -120,15 +122,16 @@ function TodosPage({ token }) {
         }),
       });
 
+      const data = await response.json();
+
       if (response.status === 401) {
         throw new Error("unauthorized");
       }
 
       if (!response.ok) {
-        throw new Error("Error: Failed to complete todo.");
+        throw new Error(data?.message || "Error: Failed to complete todo.");
       }
 
-      const data = await response.json();
       const updatedTodo = data.task || data;
 
       setTodoList((previous) =>
@@ -143,6 +146,7 @@ function TodosPage({ token }) {
     }
   }
 
+  // Update Todo
   async function updateTodo(editedTodo) {
     const originalTodo = todoList.find((todo) => todo.id === editedTodo.id);
 
@@ -172,15 +176,16 @@ function TodosPage({ token }) {
         }),
       });
 
+      const data = await response.json();
+
       if (response.status === 401) {
         throw new Error("unauthorized");
       }
 
       if (!response.ok) {
-        throw new Error("Error: Failed to update todo.");
+        throw new Error(data?.message || "Error: Failed to update todo.");
       }
 
-      const data = await response.json();
       const updatedTodo = data.task || data;
 
       setTodoList((previous) =>
