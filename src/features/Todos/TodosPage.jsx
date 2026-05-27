@@ -17,7 +17,6 @@ function TodosPage({ token }) {
   const [filterError, setFilterError] = useState("");
 
   const invalidateCache = useCallback(() => {
-    console.log("Invalidating memo cache after todo mutation");
     setDataVersion((prev) => prev + 1);
   }, []);
 
@@ -61,6 +60,7 @@ function TodosPage({ token }) {
         }
 
         setTodoList(data.tasks);
+        setFilterError("");
       } catch (error) {
         if (
           debouncedFilterTerm ||
