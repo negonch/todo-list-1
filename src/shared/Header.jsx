@@ -1,5 +1,20 @@
+import { useAuth } from "../contexts/AuthContext.jsx";
+import Logoff from "../features/Logoff.jsx";
+
 function Header() {
-  return <h1>Todo List</h1>;
+  const { isAuthenticated, email } = useAuth();
+  return (
+    <header>
+      <h1>Todo List</h1>
+
+      {isAuthenticated && (
+        <div>
+          <p>{email}</p>
+          <Logoff />
+        </div>
+      )}
+    </header>
+  );
 }
 
 export default Header;
