@@ -1,13 +1,11 @@
 import { createContext, useContext, useState } from "react";
 
-// Create the context
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 // Custom hook with error checking
 export function useAuth() {
   const context = useContext(AuthContext);
 
-  console.log("Auth context:", context);
   if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
@@ -30,8 +28,6 @@ export function AuthProvider({ children }) {
 
       const res = await fetch("/api/users/logon", options);
       const data = await res.json();
-
-      //   console.log("Login response data:", data);
 
       if (res.status === 200 && data.name && data.csrfToken) {
         // Success: Update state
