@@ -29,16 +29,14 @@ export const initialTodoState = {
   todoList: [],
   error: "",
   filterError: "",
-  isTodoListLoading: false,
-  sortBy: "creationDate",
-  sortDirection: "desc",
+  isTodoListLoading: true,
+  sortBy: "createdDate",
+  sortDirection: "asc",
   filterTerm: "",
   dataVersion: 0,
 };
 
 export function todoReducer(state, action) {
-  console.log("Dispatched action:", action.type, action.payload);
-
   switch (action.type) {
     // FETCH
     case TODO_ACTIONS.FETCH_START:
@@ -162,8 +160,8 @@ export function todoReducer(state, action) {
       return {
         ...state,
         filterTerm: "",
-        sortBy: "creationDate",
-        sortDirection: "desc",
+        sortBy: "createdDate",
+        sortDirection: "asc",
         filterError: "",
       };
 

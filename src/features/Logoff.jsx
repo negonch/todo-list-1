@@ -1,4 +1,5 @@
 import { useAuth } from "../contexts/AuthContext.jsx";
+import TextInputWithLabel from "../shared/TextInputWithLabel.jsx";
 
 function Logoff() {
   const { logout } = useAuth();

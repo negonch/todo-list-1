@@ -303,7 +303,7 @@ function TodosPage() {
         </div>
       )}
 
-      {isTodoListLoading && <p>Loading todos</p>}
+      {isTodoListLoading && <p>Loading todos...</p>}
 
       <SortBy
         sortBy={sortBy}

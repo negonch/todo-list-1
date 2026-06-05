@@ -49,11 +49,30 @@ export function AuthProvider({ children }) {
     }
   };
 
-  const logout = () => {
-    setEmail("");
-    setToken("");
+  const logout = async () => {
+    try {
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": token },
+        credentials: "include",
+      };
 
-    return { success: true };
+      const res = await fetch("/api/users/logoff", options);
+
+      setEmail("");
+      setToken("");
+
+      if (!res.ok) {
+        throw new Error(data?.message || "Failed to log out");
+      }
+
+      return { success: true };
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message,
+      };
+    }
   };
 
   // Context value object

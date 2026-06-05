@@ -1,13 +1,24 @@
-function TextInputWithLabel({ elementId, labelText, onChange, ref, value }) {
+function TextInputWithLabel({
+  elementId,
+  labelText,
+  type = "text",
+  onChange,
+  ref,
+  value,
+  disabled = false,
+  required = false,
+}) {
   return (
     <>
       <label htmlFor={elementId}>{labelText}</label>
       <input
-        type="text"
+        type={type}
         id={elementId}
         ref={ref}
         value={value}
         onChange={onChange}
+        disabled={disabled}
+        required={required}
       />
     </>
   );

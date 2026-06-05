@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import "./App.css";
 import TodosPage from "./features/Todos/TodosPage.jsx";
 import Header from "./shared/Header.jsx";
@@ -12,7 +11,6 @@ function App() {
     <div>
       {/* <Header token={token} onSetToken={setToken} onSetEmail={setEmail} /> */}
       <Header />
-
       {isAuthenticated ? <TodosPage /> : <Logon />}
     </div>
   );
