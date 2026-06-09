@@ -32,7 +32,8 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
 
     const finalTitle = finishEdit();
 
-    onUpdateTodo({ ...todo, title: workingTitle });
+    // onUpdateTodo({ ...todo, title: workingTitle });
+    onUpdateTodo({ ...todo, title: finalTitle });
   }
 
   return (

@@ -1,11 +1,14 @@
-import { useAuth } from "../contexts/AuthContext.jsx";
-import Logoff from "../features/Logoff.jsx";
+import { useAuth } from "../contexts/AuthContext";
+import Logoff from "../features/Logoff";
+import Navigation from "./Navigation";
 
 function Header() {
   const { isAuthenticated, email } = useAuth();
   return (
     <header>
       <h1>Todo List</h1>
+
+      <Navigation />
 
       {isAuthenticated && (
         <div>
