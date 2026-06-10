@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
 
 function ProfilePage() {
-  const { email, name, token } = useAuth();
+  const { email, token } = useAuth();
 
   const [stats, setStats] = useState({
     total: 0,
@@ -14,17 +14,20 @@ function ProfilePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const displayName = name || email || "User";
+  const displayName = email || "User";
 
   const completionPercentage =
     stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0;
 
   useEffect(() => {
     async function fetchTodoStats() {
-      if (!token) return;
+      if (!token) {
+        setIsLoading(false);
+        return;
+      }
 
       try {
-        setLoading(true);
+        setIsLoading(true);
         setError("");
 
         const options = {
@@ -43,18 +46,20 @@ function ProfilePage() {
           throw new Error("Failed to fetch todos");
         }
 
-        const todos = await response.json();
+        const data = await response.json();
 
         // Calculate statistics
+        const todos = data.tasks || [];
+
         const total = todos.length;
         const completed = todos.filter((todo) => todo.isCompleted).length;
         const active = total - completed;
 
-        setTodoStats({ total, completed, active });
+        setStats({ total, completed, active });
       } catch (err) {
         setError(`Error loading statistics: ${err.message}`);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     }
 
@@ -90,6 +95,7 @@ function ProfilePage() {
                 <li>Total todos: {stats.total}</li>
                 <li>Completed todos: {stats.completed}</li>
                 <li>Active todos: {stats.active}</li>
+                <li>Completion: {completionPercentage}%</li>
               </ul>
             ) : (
               <p>No todos yet. Add some todos to see your statistics.</p>
