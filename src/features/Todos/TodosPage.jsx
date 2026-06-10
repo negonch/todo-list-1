@@ -48,6 +48,7 @@ function TodosPage() {
         const paramsObject = {
           sortBy,
           sortDirection,
+          limit: 1000,
         };
         if (debouncedFilterTerm) {
           paramsObject.find = debouncedFilterTerm;
