@@ -41,6 +41,8 @@ function TodosPage() {
     if (!token) {
       return;
     }
+    // ////////////////////////////////////////////
+    let cancelled = false;
 
     //FETCH
     async function fetchTodos(sortBy, sortDirection) {
@@ -52,6 +54,7 @@ function TodosPage() {
         const paramsObject = {
           sortBy,
           sortDirection,
+          limit: 1000,
         };
         if (debouncedFilterTerm) {
           paramsObject.find = debouncedFilterTerm;
@@ -67,6 +70,8 @@ function TodosPage() {
           },
         });
         const data = await response.json();
+        // /////////////////////////////////////////////////
+        if (cancelled) return;
 
         if (response.status === 401) {
           throw new Error("unauthorized");
@@ -83,6 +88,9 @@ function TodosPage() {
           payload: { todos },
         });
       } catch (error) {
+        // //////////////////////////////////////////////
+        if (cancelled) return;
+
         dispatch({
           type: TODO_ACTIONS.FETCH_ERROR,
           payload: {
@@ -94,7 +102,12 @@ function TodosPage() {
     }
 
     fetchTodos(sortBy, sortDirection);
-  }, [token, sortBy, sortDirection, debouncedFilterTerm]);
+    // //////////////////////////////////////////////
+    return () => {
+      cancelled = true;
+    };
+    // //////////////////////////////////////////////
+  }, [token, sortBy, sortDirection, debouncedFilterTerm, dataVersion]);
 
   // Add Todo +++
   async function addTodo(todoTitle) {
@@ -169,6 +182,18 @@ function TodosPage() {
     });
 
     try {
+      // const response = await fetch(`/api/tasks/${id}`, {
+      //   method: "PATCH",
+      //   credentials: "include",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "X-CSRF-TOKEN": token,
+      //   },
+      //   body: JSON.stringify({
+      //     isCompleted: true,
+      //   }),
+      // });
+
       const response = await fetch(`/api/tasks/${id}`, {
         method: "PATCH",
         credentials: "include",
@@ -177,7 +202,7 @@ function TodosPage() {
           "X-CSRF-TOKEN": token,
         },
         body: JSON.stringify({
-          isCompleted: true,
+          isCompleted: !originalTodo.isCompleted,
         }),
       });
 

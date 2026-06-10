@@ -86,14 +86,26 @@ export function todoReducer(state, action) {
       };
 
     //   COMPLETE_TODO
+    // case TODO_ACTIONS.COMPLETE_TODO_START:
+    //   return {
+    //     ...state,
+    //     todoList: state.todoList.map((todo) =>
+    //       todo.id === action.payload.id ? { ...todo, isCompleted: true } : todo,
+    //     ),
+    //     error: "",
+    //   };
+
     case TODO_ACTIONS.COMPLETE_TODO_START:
       return {
         ...state,
         todoList: state.todoList.map((todo) =>
-          todo.id === action.payload.id ? { ...todo, isCompleted: true } : todo,
+          todo.id === action.payload.id
+            ? { ...todo, isCompleted: !todo.isCompleted }
+            : todo,
         ),
         error: "",
       };
+
     case TODO_ACTIONS.COMPLETE_TODO_SUCCESS:
       return {
         ...state,
