@@ -19,6 +19,10 @@ Coming soon.
 ![Desktop View](public/screenshots_desktop.png)
 ![Mobile View](public/screenshots_mobile.png)
 
+## DEMO
+
+https://youtu.be/6q3vNwngYjo
+
 ## Project Structure
 
 ```text
