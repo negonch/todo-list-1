@@ -1,0 +1,224 @@
+.todoItem {
+  list-style: none;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.todoForm {
+  width: 100%;
+}
+
+.viewMode {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.editMode {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.editInput {
+  flex: 1;
+  min-width: 0;
+}
+
+.editInput input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  min-height: 40px;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.editInput input:focus {
+  outline: none;
+  border-color: #9ca3af;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.25);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #8b948c;
+}
+
+.todoTitle {
+  flex: 1;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.todoTitle:hover {
+  text-decoration: underline;
+}
+
+.completedTitle {
+  flex: 1;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--muted-text);
+  text-decoration: line-through;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.primaryButton,
+.secondaryButton,
+.dangerButton {
+  min-height: 44px;
+  min-width: 44px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 22px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.primaryButton {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.primaryButton:hover {
+  background-color: #d6d8db;
+}
+
+.primaryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secondaryButton {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.secondaryButton:hover {
+  background-color: #d6d8db;
+}
+
+.dangerButton {
+  background-color: #cd4b58;
+  color: white;
+}
+
+.dangerButton:hover {
+  background-color: #a73742;
+}
+
+/* Modal window */
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.modalBox {
+  background-color: var(--card-color);
+  color: var(--text-color);
+  padding: 24px;
+  border-radius: 12px;
+  min-width: 280px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.modalBox p {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.modalButtons button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modalButtons button:first-child {
+  background-color: #cd4b58;
+  color: white;
+}
+
+.modalButtons button:last-child {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .todoItem {
+    padding: 14px;
+  }
+
+  .editMode {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .viewMode {
+    align-items: flex-start;
+  }
+
+  .buttonGroup {
+    justify-content: stretch;
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .dangerButton {
+    width: 100%;
+  }
+
+  .modalBox {
+    width: 90%;
+  }
+
+  .modalButtons {
+    flex-direction: column;
+  }
+
+  .modalButtons button {
+    width: 100%;
+  }
+}
