@@ -1,0 +1,217 @@
+.page {
+  background-color: var(--card-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pageTitle {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 360px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroup input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid;
+  /* border: 1px solid var(--border-color); */
+  border-radius: 4px;
+  background-color: var(--card-color);
+  background-color: white;
+  color: var(--text-color);
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #9ca3af;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.25);
+}
+
+.primaryButton {
+  min-height: 44px;
+  min-width: 44px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 30px;
+  background-color: var(--primary-color);
+  background-color: #e9ecef;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primaryButton:hover {
+  background-color: #d6d8db;
+}
+
+.primaryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.errorBox {
+  border: 1px solid #dc3545;
+  background-color: rgba(220, 53, 69, 0.08);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.secondaryButton {
+  min-height: 44px;
+  min-width: 44px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background-color: #e9ecef;
+  color: #333;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.secondaryButton:hover {
+  background-color: #d6d8db;
+}
+
+.card,
+.controlsCard {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+  background-color: var(--card-color);
+}
+
+.controlsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.pageText {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.featureList {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.statsList {
+  list-style-position: inside;
+  line-height: 1.8;
+}
+
+.pageNav {
+  margin-top: 20px;
+}
+
+.pageLink {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 14px;
+  border-radius: 8px;
+  background-color: #e9ecef;
+  color: #333;
+  text-decoration: none;
+}
+
+.pageLink:hover {
+  opacity: 0.9;
+  background-color: #d6d8db;
+}
+
+.pageLinkList {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pageNav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.centerMessage {
+  text-align: center;
+  font-size: 16px;
+  color: var(--muted-text);
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 16px;
+  }
+
+  .pageTitle {
+    font-size: 24px;
+  }
+
+  .card,
+  .controlsCard {
+    padding: 14px;
+  }
+
+  .loginForm {
+    max-width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .pageLink {
+    width: 100%;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+}

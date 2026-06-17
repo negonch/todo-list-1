@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./App.module.css";
 import { Route, Routes } from "react-router";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -8,11 +8,23 @@ import ProfilePage from "./pages/ProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import RequireAuth from "./components/RequireAuth";
 import Header from "./shared/Header";
-// import { useAuth } from "./contexts/AuthContext";
+import { useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
   return (
-    <>
+    <div className={styles.app} data-theme={theme}>
+      <button
+        type="button"
+        onClick={toggleTheme}
+        className={styles.themeButton}
+      >
+        {theme === "light" ? "dark Mode" : "Light Mode"}
+      </button>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -36,7 +48,7 @@ function App() {
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

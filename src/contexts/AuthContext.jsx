@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext(null);
 
-// Custom hook with error checking
 export function useAuth() {
   const context = useContext(AuthContext);
 
@@ -13,7 +12,6 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  // State for authentication
   const [email, setEmail] = useState("");
   const [token, setToken] = useState("");
 
@@ -30,12 +28,10 @@ export function AuthProvider({ children }) {
       const data = await res.json();
 
       if (res.status === 200 && data.name && data.csrfToken) {
-        // Success: Update state
         setEmail(data.name);
         setToken(data.csrfToken);
         return { success: true };
       } else {
-        // Failure: Return error
         return {
           success: false,
           error: `Authentication failed: ${data?.message}`,
@@ -75,13 +71,12 @@ export function AuthProvider({ children }) {
     }
   };
 
-  // Context value object
   const value = {
-    email, // Current user's email
-    token, // CSRF token for API requests
-    isAuthenticated: !!token, // Computed boolean for auth status
-    login, // Function to authenticate user
-    logout, // Function to clear authentication
+    email,
+    token,
+    isAuthenticated: !!token,
+    login,
+    logout,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

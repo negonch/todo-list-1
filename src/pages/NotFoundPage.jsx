@@ -1,3 +1,4 @@
+import styles from "./Pages.module.css";
 import { Link } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -5,32 +6,44 @@ function NotFoundPage() {
   const { isAuthenticated } = useAuth();
 
   return (
-    <main>
-      <h1>404 - Page Not Found</h1>
+    <main className={styles.page}>
+      <h1 className={styles.pageTitle}>404 - Page Not Found</h1>
 
-      <p>The page you are looking for does not exist.</p>
+      <p className={styles.pageText}>
+        The page you are looking for does not exist.
+      </p>
 
-      <nav>
-        <ul>
+      <nav className={styles.pageNav}>
+        <ul className={styles.pageLinkList}>
           <li>
-            <Link to="/">Go to Home page</Link>
+            <Link to="/" className={styles.pageLink}>
+              Go to Home page
+            </Link>
           </li>
 
           {isAuthenticated ? (
             <>
               <li>
-                <Link to="/todos">Go to Todos</Link>
+                <Link to="/todos" className={styles.pageLink}>
+                  Go to Todos
+                </Link>
               </li>
               <li>
-                <Link to="/profile">Go to Profile</Link>
+                <Link to="/profile" className={styles.pageLink}>
+                  Go to Profile
+                </Link>
               </li>
               <li>
-                <Link to="/about">Go to About</Link>
+                <Link to="/about" className={styles.pageLink}>
+                  Go to About
+                </Link>
               </li>
             </>
           ) : (
             <li>
-              <Link to="/login">Go to Login</Link>
+              <Link to="/login" className={styles.pageLink}>
+                Go to Login
+              </Link>
             </li>
           )}
         </ul>

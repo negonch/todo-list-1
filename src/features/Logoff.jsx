@@ -1,3 +1,4 @@
+import styles from "./Logoff.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
@@ -24,7 +25,11 @@ function Logoff() {
   }
 
   return (
-    <button type="button" onClick={handleLogoff}>
+    <button
+      type="button"
+      className={styles.buttonLogoff}
+      onClick={handleLogoff}
+    >
       Log off
     </button>
   );

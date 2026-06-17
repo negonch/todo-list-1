@@ -1,3 +1,4 @@
+import styles from "./Pages.module.css";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
@@ -13,10 +14,7 @@ function LoginPage() {
   const [authError, setAuthError] = useState("");
   const [isLoggingOn, setIsLoggingOn] = useState(false);
 
-  // Get intended destination from location state, default to '/todos'
   const from = location.state?.from?.pathname || "/todos";
-
-  // Redirect if already isAuthenticated
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -24,7 +22,6 @@ function LoginPage() {
     }
   }, [isAuthenticated, navigate, from]);
 
-  // Handle login form submission
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -33,43 +30,50 @@ function LoginPage() {
 
     const result = await login(email, password);
     if (!result.success) {
-      setAuthError(result.error);
+      setAuthError("Login failed. Please try again.");
     }
     setIsLoggingOn(false);
   }
-  // ...rest of component with form JSX
+
   return (
-    <form onSubmit={handleSubmit}>
-      {authError && <p>{authError}</p>}
+    <main className={styles.page}>
+      <h1 className={styles.pageTitle}>Log in</h1>
+      <form onSubmit={handleSubmit} className={styles.loginForm}>
+        {authError && <p className={styles.error}>{authError}</p>}
 
-      <div>
-        <TextInputWithLabel
-          elementId="email"
-          labelText="Email"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+        <div className={styles.formGroup}>
+          <TextInputWithLabel
+            elementId="email"
+            labelText="Email"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            disabled={isLoggingOn}
+            required
+          />
+        </div>
+
+        <div className={styles.formGroup}>
+          <TextInputWithLabel
+            elementId="password"
+            labelText="Password"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            disabled={isLoggingOn}
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
           disabled={isLoggingOn}
-          required
-        />
-      </div>
-
-      <div>
-        <TextInputWithLabel
-          elementId="password"
-          labelText="Password"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          disabled={isLoggingOn}
-          required
-        />
-      </div>
-
-      <button type="submit" disabled={isLoggingOn}>
-        {isLoggingOn ? "Logging on..." : "Log on"}
-      </button>
-    </form>
+          className={styles.primaryButton}
+        >
+          {isLoggingOn ? "Logging on..." : "Log on"}
+        </button>
+      </form>
+    </main>
   );
 }
 

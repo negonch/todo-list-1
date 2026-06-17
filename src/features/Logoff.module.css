@@ -1,0 +1,36 @@
+.logoffWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.buttonLogoff {
+  min-height: 44px;
+  min-width: 44px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 22px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #e9ecef;
+  color: #333;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonLogoff:hover {
+  background-color: #d6d8db;
+}
+
+.buttonLogoff:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #cd4b58;
+  font-size: 14px;
+}

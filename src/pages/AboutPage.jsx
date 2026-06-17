@@ -1,17 +1,22 @@
+import styles from "./Pages.module.css";
+
 function AboutPage() {
   return (
-    <main>
-      <h1>About Todo App</h1>
+    <main className={styles.page}>
+      <h1 className={styles.pageTitle}>About Todo App</h1>
 
-      <section>
-        <h2>App Features</h2>
-        <p>
-          This Todo App helps users manage their tasks by adding, editing, and
-          marking them as completed. <br /> The Todo App includes
-          authentication, sorting, and filtering.
+      <section className={styles.card}>
+        <h2 className={styles.sectionTitle}>App Features</h2>
+        <p className={styles.pageText}>
+          This Todo App helps users manage their tasks by adding, editing,
+          deleting and marking them as completed.
         </p>
 
-        <ul>
+        <p className={styles.pageText}>
+          The Todo App includes authentication, sorting, and filtering.
+        </p>
+
+        <ul className={styles.featureList}>
           <li>User login</li>
           <li>User logout</li>
           <li>Protected todo list page</li>
@@ -25,9 +30,9 @@ function AboutPage() {
         </ul>
       </section>
 
-      <section>
-        <h2>Technologies Used</h2>
-        <ul>
+      <section className={styles.card}>
+        <h2 className={styles.sectionTitle}>Technologies Used</h2>
+        <ul className={styles.featureList}>
           <li>React</li>
           <li>React Router</li>
           <li>Vite</li>
@@ -35,6 +40,7 @@ function AboutPage() {
           <li>Fetch API</li>
           <li>Context API</li>
           <li>useReducer</li>
+          <li>CSS Modules</li>
         </ul>
       </section>
     </main>

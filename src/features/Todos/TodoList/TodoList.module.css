@@ -1,0 +1,14 @@
+.todoList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.emptyMessage {
+  color: var(--muted-text);
+  font-size: 16px;
+  margin-top: 16px;
+}

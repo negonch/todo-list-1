@@ -1,24 +1,29 @@
+import styles from "./TextInputWithLabel.module.css";
+
 function TextInputWithLabel({
   elementId,
   labelText,
   type = "text",
   onChange,
-  // ref,
   value,
   disabled = false,
   required = false,
+  maxLength,
+  labelClassName = "",
 }) {
   return (
     <>
-      <label htmlFor={elementId}>{labelText}</label>
+      <label htmlFor={elementId} className={styles.labelClassName}>
+        {labelText}
+      </label>
       <input
         type={type}
         id={elementId}
-        // ref={ref}
         value={value}
         onChange={onChange}
         disabled={disabled}
         required={required}
+        maxLength={maxLength}
       />
     </>
   );

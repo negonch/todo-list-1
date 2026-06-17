@@ -1,0 +1,70 @@
+.inputAddTodo {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.inputAddTodo input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid;
+  /* border: 1px solid var(--border-color); */
+  border-radius: 4px;
+  background-color: white;
+  color: var(--text-color);
+}
+
+.inputAddTodo input:focus {
+  outline: none;
+  border-color: #9ca3af;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.25);
+}
+
+.buttonAddTodo {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 30px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #e9ecef;
+  color: #333;
+  white-space: nowrap;
+}
+
+.buttonAddTodo:hover {
+  background-color: #d6d8db;
+}
+
+.buttonAddTodo:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.todoLabel {
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+}
+
+.errorMessage {
+  color: #b91c1c;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+@media (max-width: 600px) {
+  .inputAddTodo {
+    flex-direction: column;
+  }
+
+  .buttonAddTodo {
+    width: 100%;
+  }
+}

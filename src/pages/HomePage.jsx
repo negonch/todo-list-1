@@ -1,3 +1,4 @@
+import styles from "./Pages.module.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
@@ -15,8 +16,8 @@ function HomePage() {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div>
-      <p>Redirecting...</p>
+    <div className={styles.page}>
+      <p className={styles.centerMessage}>Redirecting...</p>
     </div>
   );
 }

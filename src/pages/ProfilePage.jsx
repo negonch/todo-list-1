@@ -1,3 +1,4 @@
+import styles from "./Pages.module.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
@@ -48,7 +49,6 @@ function ProfilePage() {
 
         const data = await response.json();
 
-        // Calculate statistics
         const todos = data.tasks || [];
 
         const total = todos.length;
@@ -67,45 +67,49 @@ function ProfilePage() {
   }, [token]);
 
   return (
-    <main>
-      <h1>Profile</h1>
+    <main className={styles.page}>
+      <h1 className={styles.pageTitle}>Profile</h1>
 
-      <section>
-        <h2>User Information</h2>
-        <p>
+      <section className={styles.card}>
+        <h2 className={styles.sectionTitle}>User Information</h2>
+        <p className={styles.pageText}>
           <strong>Name:</strong> {displayName}
         </p>
 
-        <p>
+        <p className={styles.pageText}>
           <strong>Status:</strong> {token ? "Logged in" : "Logged out"}
         </p>
       </section>
 
-      <section>
-        <h2>Todo Statistics</h2>
+      <section className={styles.card}>
+        <h2 className={styles.sectionTitle}>Todo Statistics</h2>
 
-        {isLoading && <p>Loading statistics...</p>}
+        {isLoading && <p className={styles.pageText}>Loading statistics...</p>}
 
-        {error && <p>{error}</p>}
+        {error && <p className={styles.error}>{error}</p>}
 
         {!isLoading && !error && (
           <>
             {stats.total > 0 ? (
-              <ul>
+              <ul className={styles.statsList}>
                 <li>Total todos: {stats.total}</li>
                 <li>Completed todos: {stats.completed}</li>
                 <li>Active todos: {stats.active}</li>
                 <li>Completion: {completionPercentage}%</li>
               </ul>
             ) : (
-              <p>No todos yet. Add some todos to see your statistics.</p>
+              <p className={styles.pageText}>
+                No todos yet. Add some todos to see your statistics.
+              </p>
             )}
           </>
         )}
       </section>
 
-      <nav>
-        <Link to="/todos">Go to Todos</Link>
+      <nav className={styles.pageNav}>
+        <Link to="/todos" className={styles.pageLink}>
+          Go to Todos
+        </Link>
       </nav>
     </main>
   );
