@@ -12,8 +12,16 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [email, setEmail] = useState("");
-  const [token, setToken] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [token, setToken] = useState("");
+
+  const [email, setEmail] = useState(() => {
+    return sessionStorage.getItem("email") || "";
+  });
+
+  const [token, setToken] = useState(() => {
+    return sessionStorage.getItem("token") || "";
+  });
 
   const login = async (userEmail, password) => {
     try {
@@ -30,6 +38,9 @@ export function AuthProvider({ children }) {
       if (res.status === 200 && data.name && data.csrfToken) {
         setEmail(data.name);
         setToken(data.csrfToken);
+
+        sessionStorage.setItem("email", data.name);
+        sessionStorage.setItem("token", data.csrfToken);
 
         return { success: true };
       } else {
@@ -62,6 +73,9 @@ export function AuthProvider({ children }) {
 
       setEmail("");
       setToken("");
+
+      sessionStorage.removeItem("email");
+      sessionStorage.removeItem("token");
 
       return { success: true };
     } catch (error) {
