@@ -16,66 +16,67 @@ Coming soon.
 
 ## Screenshots
 
-![Desktop View](public/screenshots_desktop.png)
-![Mobile View](public/screenshots_mobile.png)
+![Desktop View 1](public/screenshots/desktop-screenshot-1.png)
+![Desktop View 2](public/screenshots/desktop-screenshot-2.png)
+![Mobile View](public/screenshots/mobile-screenshot.png)
 
 ## Project Structure
 
 ```text
-├── README.md
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── package.json
-├── public
-│   ├── favicon.svg
-│   └── icons.svg
-├── src
-│   ├── App.jsx
-│   ├── App.module.css
-│   ├── assets
-│   │   ├── hero.png
-│   │   ├── react.svg
-│   │   └── vite.svg
-│   ├── components
-│   │   └── RequireAuth.jsx
-│   ├── contexts
-│   │   └── AuthContext.jsx
-│   ├── features
-│   │   ├── Logoff.jsx
-│   │   ├── Logoff.module.css
-│   │   └── Todos
-│   ├── hooks
-│   │   └── useEditableTitle.js
-│   ├── index.css
-│   ├── main.jsx
-│   ├── pages
-│   │   ├── AboutPage.jsx
-│   │   ├── HomePage.jsx
-│   │   ├── LoginPage.jsx
-│   │   ├── NotFoundPage.jsx
-│   │   ├── Pages.module.css
-│   │   ├── ProfilePage.jsx
-│   │   └── TodosPage.jsx
-│   ├── reducers
-│   │   └── todoReducer.js
-│   ├── shared
-│   │   ├── FilterInput.jsx
-│   │   ├── FilterInput.module.css
-│   │   ├── Header.jsx
-│   │   ├── Header.module.css
-│   │   ├── Navigation.jsx
-│   │   ├── Navigation.module.css
-│   │   ├── SortBy.jsx
-│   │   ├── SortBy.module.css
-│   │   ├── StatusFilter.jsx
-│   │   ├── StatusFilter.module.css
-│   │   ├── TextInputWithLabel.jsx
-│   │   └── TextInputWithLabel.module.css
-│   └── utils
-│       ├── todoValidation.js
-│       └── useDebounce.js
-└── vite.config.js
+src
+├── App.jsx
+├── App.module.css
+├── assets
+│   ├── hero.png
+│   ├── react.svg
+│   └── vite.svg
+├── components
+│   └── RequireAuth.jsx
+├── contexts
+│   └── AuthContext.jsx
+├── features
+│   ├── Logoff.jsx
+│   ├── Logoff.module.css
+│   └── Todos
+│       ├── TodoForm.jsx
+│       ├── TodoForm.module.css
+│       └── TodoList
+│           ├── TodoList.jsx
+│           ├── TodoList.module.css
+│           ├── TodoListItem.jsx
+│           └── TodoListItem.module.css
+├── hooks
+│   └── useEditableTitle.js
+├── index.css
+├── main.jsx
+├── pages
+│   ├── AboutPage.jsx
+│   ├── HomePage.jsx
+│   ├── LoginPage.jsx
+│   ├── NotFoundPage.jsx
+│   ├── Pages.module.css
+│   ├── ProfilePage.jsx
+│   └── TodosPage.jsx
+├── reducers
+│   └── todoReducer.js
+├── shared
+│   ├── CustomDropdown.jsx
+│   ├── CustomDropdown.module.css
+│   ├── FilterInput.jsx
+│   ├── FilterInput.module.css
+│   ├── Header.jsx
+│   ├── Header.module.css
+│   ├── Navigation.jsx
+│   ├── Navigation.module.css
+│   ├── SortBy.jsx
+│   ├── SortBy.module.css
+│   ├── StatusFilter.jsx
+│   ├── TextInputWithLabel.jsx
+│   └── TextInputWithLabel.module.css
+└── utils
+    ├── sanitizeInput.js
+    ├── todoValidation.js
+    └── useDebounce.js
 ```
 
 ## Features
@@ -92,6 +93,8 @@ Coming soon.
 - Filter todos by search term
 - Todo statistics on the profile page
 - Total, completed, and active todo count
+- Light and dark theme toggle
+- Delete confirmation modal
 - Completion percentage
 - Loading and error handling
 - Responsive design for mobile and desktop
@@ -170,8 +173,11 @@ Form inputs include validation, maximum length limits, and user-friendly error m
    npm run dev
    ```
 
-2. Open http://localhost:3001/ in your browser.
-   If your terminal shows a different port, use the URL shown in the terminal.
+2. Open the local URL in your browser shown in the terminal, for example:
+
+   ```bash
+   http://localhost:3001/
+   ```
 
 ## License
 

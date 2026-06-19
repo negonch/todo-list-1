@@ -1,10 +1,3 @@
-.logoffWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-}
-
 .buttonLogoff {
   min-height: 44px;
   min-width: 44px;
@@ -15,7 +8,6 @@
   font-size: 14px;
   background-color: #e9ecef;
   color: #333;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +23,6 @@
 }
 
 .error {
-  color: #cd4b58;
+  color: #a73742;
   font-size: 14px;
 }

@@ -30,6 +30,7 @@ export function AuthProvider({ children }) {
       if (res.status === 200 && data.name && data.csrfToken) {
         setEmail(data.name);
         setToken(data.csrfToken);
+
         return { success: true };
       } else {
         return {

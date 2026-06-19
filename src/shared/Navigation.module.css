@@ -18,29 +18,32 @@
   font-size: 16px;
   padding: 8px 10px;
   border-radius: 8px;
-
   display: flex;
   align-items: center;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .link:hover {
-  background-color: #e9ecef;
+  transform: scale(1.16);
 }
 
 .activeLink {
+  transform: scale(1.16);
   font-weight: 700;
-  text-decoration: underline;
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 @media (max-width: 600px) {
   .navList {
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 32px;
   }
 
   .link {
-    width: 100%;
     justify-content: center;
   }
 }

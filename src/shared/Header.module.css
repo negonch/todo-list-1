@@ -1,4 +1,6 @@
 .header {
+  width: 100%;
+  box-sizing: border-box;
   background-color: var(--card-color);
   color: var(--text-color);
   border: 1px solid var(--border-color);
@@ -17,7 +19,7 @@
 }
 
 .title {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 700;
 }
 
@@ -28,11 +30,14 @@
 }
 
 .email {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted-text);
 }
 
-/* Mobile */
+.emailValue {
+  font-weight: 700;
+}
+
 @media (max-width: 600px) {
   .headerTop {
     flex-direction: column;

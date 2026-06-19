@@ -7,41 +7,35 @@ function NotFoundPage() {
 
   return (
     <main className={styles.page}>
-      <h1 className={styles.pageTitle}>404 - Page Not Found</h1>
+      <h1 className={styles.pageNotFound}>404 - Page Not Found</h1>
 
       <p className={styles.pageText}>
         The page you are looking for does not exist.
       </p>
 
-      <nav className={styles.pageNav}>
-        <ul className={styles.pageLinkList}>
-          <li>
-            <Link to="/" className={styles.pageLink}>
-              Go to Home page
-            </Link>
-          </li>
-
+      <nav className={styles.pageNavNotFound}>
+        <ul className={styles.pageLinkListNotFound}>
           {isAuthenticated ? (
             <>
               <li>
-                <Link to="/todos" className={styles.pageLink}>
+                <Link to="/about" className={styles.pageLinkNotFound}>
+                  Go to About
+                </Link>
+              </li>
+              <li>
+                <Link to="/todos" className={styles.pageLinkNotFound}>
                   Go to Todos
                 </Link>
               </li>
               <li>
-                <Link to="/profile" className={styles.pageLink}>
+                <Link to="/profile" className={styles.pageLinkNotFound}>
                   Go to Profile
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className={styles.pageLink}>
-                  Go to About
                 </Link>
               </li>
             </>
           ) : (
             <li>
-              <Link to="/login" className={styles.pageLink}>
+              <Link to="/login" className={styles.pageLinkNotFound}>
                 Go to Login
               </Link>
             </li>

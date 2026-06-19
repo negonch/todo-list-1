@@ -69,13 +69,14 @@ function TodosPage() {
             "X-CSRF-TOKEN": token,
           },
         });
-        const data = await response.json();
 
         if (cancelled) return;
 
         if (response.status === 401) {
           throw new Error("unauthorized");
         }
+
+        const data = await response.json();
 
         if (!response.ok) {
           throw new Error(data?.message || "Failed to load todos.");
@@ -365,33 +366,42 @@ function TodosPage() {
         </div>
       )}
 
-      {isTodoListLoading && <p className={styles.pageText}>Loading todos...</p>}
+      {isTodoListLoading && (
+        <p className={styles.pageTextInfo}>Loading todos...</p>
+      )}
 
       <section className={styles.controlsCard}>
-        <SortBy
-          sortBy={sortBy}
-          sortDirection={sortDirection}
-          onSortByChange={(newSortBy) => {
-            dispatch({
-              type: TODO_ACTIONS.SET_SORT,
-              payload: { sortBy: newSortBy, sortDirection },
-            });
-          }}
-          onSortDirectionChange={(newSortDirection) => {
-            dispatch({
-              type: TODO_ACTIONS.SET_SORT,
-              payload: { sortBy, sortDirection: newSortDirection },
-            });
-          }}
-        />
-        <StatusFilter />
+        <div className={styles.controlsRow}>
+          <div className={styles.sortWrapper}>
+            <SortBy
+              sortBy={sortBy}
+              sortDirection={sortDirection}
+              onSortByChange={(newSortBy) => {
+                dispatch({
+                  type: TODO_ACTIONS.SET_SORT,
+                  payload: { sortBy: newSortBy, sortDirection },
+                });
+              }}
+              onSortDirectionChange={(newSortDirection) => {
+                dispatch({
+                  type: TODO_ACTIONS.SET_SORT,
+                  payload: { sortBy, sortDirection: newSortDirection },
+                });
+              }}
+            />
+          </div>
+          <div className={styles.statusWrapper}>
+            <StatusFilter />
+          </div>
+        </div>
         <FilterInput
           filterTerm={filterTerm}
           onFilterChange={handleFilterChange}
         />
-        <TodoForm onAddTodo={addTodo} />
       </section>
       <section className={styles.card}>
+        <TodoForm onAddTodo={addTodo} />
+
         <TodoList
           todoList={todoList}
           onCompleteTodo={completeTodo}

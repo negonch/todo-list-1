@@ -1,5 +1,6 @@
 .inputAddTodo {
   display: flex;
+  align-items: flex-end;
   gap: 12px;
   margin-bottom: 20px;
   width: 100%;
@@ -10,8 +11,7 @@
   padding: 10px 12px;
   font-size: 16px;
   border: 1px solid;
-  /* border: 1px solid var(--border-color); */
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: white;
   color: var(--text-color);
 }
@@ -48,13 +48,14 @@
 }
 
 .todoLabel {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
-  color: black;
+  color: #333;
+  margin-top: 8px;
 }
 
 .errorMessage {
-  color: #b91c1c;
+  color: #a73742;
   font-size: 14px;
   margin: 4px 0;
 }
@@ -62,6 +63,11 @@
 @media (max-width: 600px) {
   .inputAddTodo {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  .todoLabel {
+    font-size: 20px;
   }
 
   .buttonAddTodo {
