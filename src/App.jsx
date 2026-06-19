@@ -23,7 +23,7 @@ function App() {
         onClick={toggleTheme}
         className={styles.themeButton}
       >
-        {theme === "light" ? "dark Mode" : "Light Mode"}
+        {theme === "light" ? "Dark Mode" : "Light Mode"}
       </button>
       <Header />
       <Routes>

@@ -3,9 +3,8 @@ import styles from "./Pages.module.css";
 function AboutPage() {
   return (
     <main className={styles.page}>
-      <h1 className={styles.pageTitle}>About Todo App</h1>
-
       <section className={styles.card}>
+        <h1 className={styles.pageTitle}>About Todo App</h1>
         <h2 className={styles.sectionTitle}>App Features</h2>
         <p className={styles.pageText}>
           This Todo App helps users manage their tasks by adding, editing,
@@ -22,11 +21,18 @@ function AboutPage() {
           <li>Protected todo list page</li>
           <li>Add new todos</li>
           <li>Edit existing todos</li>
+          <li>Delete todos</li>
           <li>Mark todos as completed</li>
           <li>Sort todos by title</li>
-          <li>Sort todos by creating date</li>
+          <li>Sort todos by creation date</li>
           <li>Filter todos by search term</li>
+          <li>Todo statistics on the profile page</li>
+          <li>Total, completed, and active todo count</li>
+          <li>Light and dark theme toggle</li>
+          <li>Delete confirmation modal</li>
+          <li>Completion percentage</li>
           <li>Loading and error handling</li>
+          <li>Responsive design for mobile and desktop</li>
         </ul>
       </section>
 

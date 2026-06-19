@@ -1,4 +1,5 @@
 import styles from "./SortBy.module.css";
+import CustomDropdown from "./CustomDropdown.jsx";
 
 export default function SortBy({
   sortBy,
@@ -8,37 +9,25 @@ export default function SortBy({
 }) {
   return (
     <div className={styles.sortControls}>
-      <div className={styles.fieldGroup}>
-        <label htmlFor="sortBy" className={styles.label}>
-          Sort by:
-        </label>
-        <select
-          name="sortBy"
-          id="sortBy"
-          value={sortBy}
-          onChange={(event) => onSortByChange(event.target.value)}
-          className={styles.select}
-        >
-          <option value="createdAt">Creation Date</option>
-          <option value="title">Title</option>
-        </select>
-      </div>
+      <CustomDropdown
+        label="Sort by:"
+        value={sortBy}
+        onChange={onSortByChange}
+        options={[
+          { value: "createdAt", label: "Creation Date" },
+          { value: "title", label: "Title" },
+        ]}
+      />
 
-      <div className={styles.fieldGroup}>
-        <label htmlFor="sortDirection" className={styles.label}>
-          Order:
-        </label>
-        <select
-          name="sortDirection"
-          id="sortDirection"
-          value={sortDirection}
-          onChange={(event) => onSortDirectionChange(event.target.value)}
-          className={styles.select}
-        >
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-      </div>
+      <CustomDropdown
+        label="Order:"
+        value={sortDirection}
+        onChange={onSortDirectionChange}
+        options={[
+          { value: "asc", label: "Ascending" },
+          { value: "desc", label: "Descending" },
+        ]}
+      />
     </div>
   );
 }

@@ -1,0 +1,80 @@
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownButton {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid;
+  border-radius: 8px;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.dropdownButton:focus {
+  outline: none;
+  border-color: #9ca3af;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.25);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dropdownOption {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownOption:hover,
+.dropdownOption:focus {
+  background-color: #e5e7eb;
+  outline: none;
+}
+
+.selectedOption {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+.arrow {
+  font-size: 14px;
+}

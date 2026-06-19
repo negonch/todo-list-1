@@ -10,10 +10,11 @@ function TextInputWithLabel({
   required = false,
   maxLength,
   labelClassName = "",
+  placeholder = "",
 }) {
   return (
     <>
-      <label htmlFor={elementId} className={styles.labelClassName}>
+      <label htmlFor={elementId} className={labelClassName}>
         {labelText}
       </label>
       <input
@@ -24,6 +25,7 @@ function TextInputWithLabel({
         disabled={disabled}
         required={required}
         maxLength={maxLength}
+        placeholder={placeholder}
       />
     </>
   );

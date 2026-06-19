@@ -8,11 +8,13 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerTop}>
-        <h1 classname={styles.headerTop}>Todo List</h1>
+        <h1 className={styles.title}>Todo List</h1>
 
         {isAuthenticated && (
           <div className={styles.userInfo}>
-            <p className={styles.email}>{email}</p>
+            <p className={styles.email}>
+              Hello, <span className={styles.emailValue}>{email}</span>
+            </p>
             <Logoff />
           </div>
         )}

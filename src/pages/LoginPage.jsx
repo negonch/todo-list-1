@@ -37,42 +37,44 @@ function LoginPage() {
 
   return (
     <main className={styles.page}>
-      <h1 className={styles.pageTitle}>Log in</h1>
-      <form onSubmit={handleSubmit} className={styles.loginForm}>
-        {authError && <p className={styles.error}>{authError}</p>}
+      <section className={styles.controlsCard}>
+        <h1 className={styles.pageTitle}>Log in</h1>
+        <form onSubmit={handleSubmit} className={styles.loginForm}>
+          {authError && <p className={styles.error}>{authError}</p>}
 
-        <div className={styles.formGroup}>
-          <TextInputWithLabel
-            elementId="email"
-            labelText="Email"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
+          <div className={styles.formGroup}>
+            <TextInputWithLabel
+              elementId="email"
+              labelText="Email"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              disabled={isLoggingOn}
+              required
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <TextInputWithLabel
+              elementId="password"
+              labelText="Password"
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              disabled={isLoggingOn}
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
             disabled={isLoggingOn}
-            required
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <TextInputWithLabel
-            elementId="password"
-            labelText="Password"
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            disabled={isLoggingOn}
-            required
-          />
-        </div>
-
-        <button
-          type="submit"
-          disabled={isLoggingOn}
-          className={styles.primaryButton}
-        >
-          {isLoggingOn ? "Logging on..." : "Log on"}
-        </button>
-      </form>
+            className={styles.primaryButton}
+          >
+            {isLoggingOn ? "Logging on..." : "Log on"}
+          </button>
+        </form>
+      </section>
     </main>
   );
 }

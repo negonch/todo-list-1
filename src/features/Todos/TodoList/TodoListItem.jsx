@@ -103,7 +103,7 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo, onDeleteTodo }) {
         )}
       </form>
       {showDeleteConfirm && (
-        <div className={styles.modalBackground}>
+        <div className={styles.modalBackdrop}>
           <div className={styles.modalBox}>
             <p>Do you want to delete this todo?</p>
             <div className={styles.modalButtons}>

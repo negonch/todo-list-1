@@ -68,9 +68,8 @@ function ProfilePage() {
 
   return (
     <main className={styles.page}>
-      <h1 className={styles.pageTitle}>Profile</h1>
-
       <section className={styles.card}>
+        <h1 className={styles.pageTitle}>Profile</h1>
         <h2 className={styles.sectionTitle}>User Information</h2>
         <p className={styles.pageText}>
           <strong>Name:</strong> {displayName}
@@ -84,7 +83,9 @@ function ProfilePage() {
       <section className={styles.card}>
         <h2 className={styles.sectionTitle}>Todo Statistics</h2>
 
-        {isLoading && <p className={styles.pageText}>Loading statistics...</p>}
+        {isLoading && (
+          <p className={styles.pageTextInfo}>Loading statistics...</p>
+        )}
 
         {error && <p className={styles.error}>{error}</p>}
 
@@ -107,9 +108,11 @@ function ProfilePage() {
       </section>
 
       <nav className={styles.pageNav}>
-        <Link to="/todos" className={styles.pageLink}>
-          Go to Todos
-        </Link>
+        <div className={styles.profileActions}>
+          <Link to="/todos" className={styles.pageLink}>
+            Go to Todos
+          </Link>
+        </div>
       </nav>
     </main>
   );
