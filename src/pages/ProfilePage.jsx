@@ -109,7 +109,7 @@ function ProfilePage() {
 
       <nav className={styles.pageNav}>
         <div className={styles.profileActions}>
-          <Link to="/todos" className={styles.pageLink}>
+          <Link to="/todos" className={styles.pageLinkProfile}>
             Go to Todos
           </Link>
         </div>
