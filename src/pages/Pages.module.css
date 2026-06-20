@@ -68,17 +68,19 @@
   cursor: not-allowed;
 }
 .errorBox {
-  border: 1px solid #a73742;
-  background-color: rgba(220, 53, 69, 0.08);
+  width: fit-content;
+  background-color: rgba(169, 39, 52, 0.08);
   border-radius: 12px;
   padding: 14px;
   margin-bottom: 16px;
+  align-self: center;
 }
 
 .error {
   color: #a73742;
   font-size: 14px;
   margin-bottom: 10px;
+  overflow-wrap: break-word;
 }
 
 .buttonGroup {
@@ -99,6 +101,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 .secondaryButton:hover {
