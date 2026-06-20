@@ -6,12 +6,12 @@ function AboutPage() {
       <section className={styles.card}>
         <h1 className={styles.pageTitle}>About Todo App</h1>
         <h2 className={styles.sectionTitle}>App Features</h2>
-        <p className={styles.pageText}>
+        <p className={styles.pageAboutText}>
           This Todo App helps users manage their tasks by adding, editing,
           deleting and marking them as completed.
         </p>
 
-        <p className={styles.pageText}>
+        <p className={styles.pageAboutText}>
           The Todo App includes authentication, sorting, and filtering.
         </p>
 

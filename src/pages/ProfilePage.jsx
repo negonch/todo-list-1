@@ -71,11 +71,11 @@ function ProfilePage() {
       <section className={styles.card}>
         <h1 className={styles.pageTitle}>Profile</h1>
         <h2 className={styles.sectionTitle}>User Information</h2>
-        <p className={styles.pageText}>
+        <p className={styles.pageProfileText}>
           <strong>Name:</strong> {displayName}
         </p>
 
-        <p className={styles.pageText}>
+        <p className={styles.pageProfileText}>
           <strong>Status:</strong> {token ? "Logged in" : "Logged out"}
         </p>
       </section>
