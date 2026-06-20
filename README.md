@@ -1,11 +1,11 @@
 # Todo List
 
-A modern todo application built with Vite and React, featuring user authentication, task management, filtering, sorting, and responsive design.
+A modern task management application built with Vite and React, featuring user authentication, task management, filtering, sorting, and responsive design.
 This project demonstrates proficiency in React hooks, reducer-based state management, component architecture, API integration, and protected routing.
 
 ## Live Demo
 
-Coming soon.
+https://todo-list-1-orpin.vercel.app
 
 ## Technologies Used
 
@@ -153,21 +153,45 @@ Form inputs include validation, maximum length limits, and user-friendly error m
 
 1. Clone the repository from GitHub:
 
-   ```bash
-   git clone https://github.com/negonch/todo-list-1.git
-   ```
+```bash
+git clone https://github.com/negonch/todo-list-1.git
+```
 
 2. Open the project folder in Terminal:
 
-   ```bash
-   cd todo-list-1
-   ```
+```bash
+cd todo-list-1
+```
 
 3. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
+
+### Environment Variables
+
+This project uses environment variables for local development.
+
+1. Create a `.env` file in the root of the project:
+
+```bash
+touch .env
+```
+
+2. Add the following variable:
+
+```env
+VITE_TARGET=http://localhost:3001
+```
+
+`VITE_TARGET` is used by the Vite proxy to connect the frontend to the backend API during development.
+
+3. After creating or changing the `.env` file, restart the development server:
+
+```bash
+npm run dev
+```
 
 ## Run the project
 

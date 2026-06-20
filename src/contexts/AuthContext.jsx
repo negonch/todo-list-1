@@ -12,9 +12,6 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  // const [email, setEmail] = useState("");
-  // const [token, setToken] = useState("");
-
   const [email, setEmail] = useState(() => {
     return sessionStorage.getItem("email") || "";
   });
