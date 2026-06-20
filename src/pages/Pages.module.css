@@ -174,7 +174,8 @@
   margin-top: 20px;
 }
 
-.pageLink {
+.pageLink,
+.pageLinkProfile {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -187,6 +188,11 @@
 }
 
 .pageLink:hover {
+  opacity: 0.9;
+  background-color: #d6d8db;
+}
+
+.pageLinkProfile:hover {
   opacity: 0.9;
   background-color: #d6d8db;
 }
@@ -279,6 +285,21 @@
   .secondaryButton,
   .pageLink {
     width: 100%;
+  }
+
+  .pageLinkProfile {
+    width: 400px;
+    justify-content: center;
+  }
+
+  .profileActions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .secondaryButton {
+    width: 100px;
   }
 
   .buttonGroup {
