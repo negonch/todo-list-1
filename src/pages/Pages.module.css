@@ -145,12 +145,19 @@
 .pageText {
   margin-bottom: 10px;
   line-height: 1.5;
+  text-align: center;
 }
 
 .pageTextInfo {
   margin-bottom: 10px;
   line-height: 1.5;
   color: #867f7f;
+}
+
+.pageProfileText,
+.pageAboutText {
+  margin-bottom: 10px;
+  line-height: 1.5;
 }
 
 .featureList {
@@ -210,6 +217,7 @@
   flex-direction: row;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .pageLinkNotFound:hover {
   opacity: 0.9;
@@ -220,6 +228,7 @@
   margin-bottom: 30px;
   font-size: 28px;
   color: #a73742;
+  text-align: center;
 }
 
 .pageLinkList {
